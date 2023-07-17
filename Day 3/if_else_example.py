@@ -11,11 +11,17 @@ if height >= 120:
     age = int(input("Please enter your age in years: "))
 
     if age >= 12 and age < 18:
-        print("Please pay $5 at the counter and enjoy your ride!!!")
+        bill = 5
     elif age >= 18 and age < 24:
-        print("Please pay $10 at the counter and enjoy your ride!!!")
+        bill = 10
     else:
-        print("Please pay $15 at the counter and enjoy your ride!!!")
+        bill = 15
+
+    want_photo = input("Do you want a photo to be taken? Y or N: ")
+    if want_photo == 'Y':
+        bill = bill + 3
+
+    print(f"Your bill is {bill}, pay at the counter and enjoy your ride!!")
 
 else:
     print("Sorry!!, You are too short for the ride!!!")
