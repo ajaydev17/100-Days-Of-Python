@@ -52,3 +52,34 @@ if year > 1980 and year <= 1994:
 elif year > 1994:
     print("You are a Gen Z.")
 
+
+# comparing string with integer causes bugs
+
+# age = input("Enter your age: ")
+# if age >= 18:
+#     print("You can cast vote!!")
+
+# we need to convert age into integer before comparing
+age = int(input("Enter your age: "))
+if age >= 18:
+    print("You can cast vote!!")
+
+
+
+# this gonna print 0 on the console
+pages = 0
+word_per_page = 0
+pages = int(input("Number of pages: "))
+word_per_page == int(input("Number of words per page: "))
+total_words = pages * word_per_page
+print(total_words)
+
+# Bug in the above code is ==
+
+pages = 0
+word_per_page = 0
+pages = int(input("Number of pages: "))
+word_per_page = int(input("Number of words per page: "))
+total_words = pages * word_per_page
+print(total_words)
+
