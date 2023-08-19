@@ -83,3 +83,22 @@ word_per_page = int(input("Number of words per page: "))
 total_words = pages * word_per_page
 print(total_words)
 
+# find the bug
+def mutate(a_list):
+  b_list = []
+  for item in a_list:
+    new_item = item * 2
+  b_list.append(new_item)
+  print(b_list)
+
+mutate([1,2,3,5,8,13])
+
+# we need to put list append inside the for loop
+def mutate(a_list):
+  b_list = []
+  for item in a_list:
+    new_item = item * 2
+    b_list.append(new_item)
+  print(b_list)
+
+mutate([1,2,3,5,8,13])
