@@ -34,3 +34,21 @@ print(dice_images[dice_number])
 dice_images = ["🔇", "🔕", "🚭", "🚷", "🚯", "🚳"]
 dice_number = randint(1, 5)
 print(dice_images[dice_number])
+
+# comparison operator
+year = int(input("What is your year of birth?: "))
+
+if year > 1980 and year < 1994:
+    print("You are a millenial.")
+elif year > 1994:
+    print("You are a Gen Z.")
+
+
+# to make the above code proferly we need to put an extra = operator
+year = int(input("What is your year of birth?: "))
+
+if year > 1980 and year <= 1994:
+    print("You are a millenial.")
+elif year > 1994:
+    print("You are a Gen Z.")
+
