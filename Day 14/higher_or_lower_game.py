@@ -338,10 +338,24 @@ def get_random_data():
 
 def get_formatted_data(random_data):
     """
-        formats the data in a particular format
+        formats the data in a particular printable format: name, description and country
     """
     name = random_data["name"]
     description = random_data["description"]
     country = random_data["country"]
 
     return f"{name}, a {description}, from {country}"
+
+# checks answer
+
+
+def check_answer(guess, a_followers, b_followers):
+    """
+        checks followers against users guess
+        returns True if they got it right
+        else returns False
+    """
+    if a_followers > b_followers:
+        return guess == 'a'
+    else:
+        return guess == 'b'
