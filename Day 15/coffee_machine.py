@@ -34,7 +34,7 @@ resources = {
 
 def is_resource_sufficient(order_ingredients):
     """
-        gonna return whether we can prefer the drink or not with the resource available
+        gonna return whether we can prefer the drink or not with the resources available
     """
     is_enough = True
     for item in order_ingredients:
@@ -42,6 +42,18 @@ def is_resource_sufficient(order_ingredients):
             print(f"Sorry!!, There is not enough {item} make your drink.")
             is_enough = False
     return is_enough
+
+
+def process_coins():
+    """
+        returns the total inserted coins
+    """
+    print("please insert coins!!.")
+    total = int(input("How many quarters ? : ")) * 0.25
+    total += int(input("How many dimes ? : ")) * 0.1
+    total += int(input("How many nickles ? : ")) * 0.05
+    total += int(input("How many pennis ? : ")) * 0.01
+    return total
 
 
 is_machine_on = True
