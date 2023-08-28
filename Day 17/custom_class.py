@@ -5,5 +5,12 @@ class User:
     pass
 
 
+def my_function():
+    """
+        empty function example
+    """
+    pass
+
+
 user_1 = User()
 print(user_1)
