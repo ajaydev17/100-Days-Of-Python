@@ -1,3 +1,5 @@
+import random
+
 # squaring the numbers
 
 number_list = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
@@ -20,8 +22,17 @@ print(odd_numbers)
 example_string = "What is the Airspeed velocity of an Unladen Swallow?"
 example_string_list = example_string.split(" ")
 
-example_dict = {str(element):int(len(element)) for element in example_string_list}
+example_dict = {str(element): int(len(element)) for element in example_string_list}
 print(example_dict)
+
+students = ["Alex", "Beth", "John", "Chris", "Jordan", "Stewart"]
+student_score_dict = {str(name): int(random.randint(1, 100)) for name in students}
+print(student_score_dict)
+
+# get the students who got passing marks i.e >= 35
+
+passed_students = {str(name): int(score) for name, score in student_score_dict.items() if int(score) >= 35}
+print(passed_students)
 
 
 
