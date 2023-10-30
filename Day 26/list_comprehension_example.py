@@ -1,5 +1,5 @@
 import random
-
+import pandas
 # squaring the numbers
 
 number_list = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
@@ -33,6 +33,16 @@ print(student_score_dict)
 
 passed_students = {str(name): int(score) for name, score in student_score_dict.items() if int(score) >= 35}
 print(passed_students)
+
+# iterate over the pandas DataFrame
+
+dataframe_data = pandas.DataFrame([passed_students])
+print(dataframe_data)
+
+print("---------------------------------------------------------------------------------------------------------------")
+
+for index, row in dataframe_data.iterrows():
+    print(index, row)
 
 
 
