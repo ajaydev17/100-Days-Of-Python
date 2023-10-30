@@ -14,3 +14,14 @@ print(even_numbers)
 
 odd_numbers = [number for number in squared_numbers if number % 2 != 0]
 print(odd_numbers)
+
+# dictionary comprehension
+
+example_string = "What is the Airspeed velocity of an Unladen Swallow?"
+example_string_list = example_string.split(" ")
+
+example_dict = {str(element):int(len(element)) for element in example_string_list}
+print(example_dict)
+
+
+
