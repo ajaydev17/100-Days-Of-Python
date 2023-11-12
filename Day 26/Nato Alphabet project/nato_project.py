@@ -11,10 +11,21 @@ nato_alphabet = pd.read_csv("nato_phonetic_alphabet.csv")
 nato_phonetic_alphabet_dict = {row.letter: row.code for index, row in nato_alphabet.iterrows()}
 # print(nato_phonetic_alphabet_dict)
 
-user_input = input("Enter your word: ").upper()
 
-nato_code = [nato_phonetic_alphabet_dict[word] for word in user_input]
-print(nato_code)
+def generate_nato_phonetic_alphabet():
+    user_input = input("Enter your word: ").upper()
+
+    try:
+        nato_code = [nato_phonetic_alphabet_dict[word] for word in user_input]
+    except KeyError:
+        print("Sorry, only letters in the alphabet!!")
+        generate_nato_phonetic_alphabet()
+    else:
+        print(nato_code)
+
+
+generate_nato_phonetic_alphabet()
+
 
 # another way of doing it with pandas item methods
 
