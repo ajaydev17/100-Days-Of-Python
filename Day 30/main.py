@@ -5,6 +5,26 @@ import json
 
 FILE_NAME = "data.json"
 
+# ---------------------------- SEARCH INFO ------------------------------- #
+
+
+def search_info():
+    website_value = website_input.get()
+
+    try:
+        with open("data.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No data file found!!")
+    else:
+        if website_value in data:
+            email_value = data[website_value]["email"]
+            password_value = data[website_value]["password"]
+            messagebox.showinfo(title=website_value, message=f"Email: {email_value}\nPassword: {password_value}")
+        else:
+            messagebox.showinfo(title="Oops", message=f"No data found for {website_value}")
+
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
@@ -91,22 +111,25 @@ password_label = Label(text="Password:")
 password_label.grid(column=0, row=3)
 
 # place the input field on the screen
-website_input = Entry()
+website_input = Entry(width=21)
 website_input.focus()
-website_input.grid(column=1, row=1, columnspan=2, sticky="EW")
+website_input.grid(column=1, row=1, sticky="EW")
 
 email_input = Entry(width=35)
 email_input.insert(0, "devadigaajay1729@gmail.com")
 email_input.grid(column=1, row=2, columnspan=2, sticky="EW")
 
-password_input = Entry(width=35)
+password_input = Entry(width=21)
 password_input.grid(column=1, row=3, sticky="EW")
 
 # place the button on the screen
 generate_password_btn = Button(text="Generate Password", command=generate_password)
-generate_password_btn.grid(column=2, row=3, sticky="EW")
+generate_password_btn.grid(column=2, row=3)
 
 add_btn = Button(text="Add", width=36, command=save_info)
 add_btn.grid(column=1, row=4, columnspan=2, sticky="EW")
+
+search_btn = Button(text="Search", command=search_info)
+search_btn.grid(column=2, row=1, sticky="EW")
 
 window.mainloop()
