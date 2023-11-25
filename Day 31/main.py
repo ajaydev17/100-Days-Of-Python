@@ -5,10 +5,17 @@ import random
 
 BACKGROUND_COLOR = "#B1DDC6"
 
-# read data from csv
-french_words = pandas.read_csv("data/french_words.csv")
-french_words = french_words.to_dict(orient="records")
 current_word = {}
+french_words = {}
+
+
+# read data from csv
+try:
+    french_words = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError as error:
+    french_words = pandas.read_csv("data/french_words.csv")
+finally:
+    french_words = french_words.to_dict(orient="records")
 
 
 def next_card():
@@ -27,6 +34,13 @@ def flip_card():
     canvas.itemconfig(canvas_title, text="English", fill="white")
     canvas.itemconfig(canvas_text, text=english_word, fill="white")
     canvas.itemconfig(canvas_background, image=card_back_image)
+
+
+def is_known_word():
+    french_words.remove(current_word)
+    words_to_learn = pandas.DataFrame(french_words)
+    words_to_learn.to_csv("data/words_to_learn.csv", index=False)
+    next_card()
 
 
 # creating the window
@@ -52,7 +66,7 @@ cross_button = Button(image=cross_image, highlightthickness=0, command=next_card
 cross_button.grid(row=1, column=0)
 
 right_image = PhotoImage(file="images/right.png")
-right_button = Button(image=right_image, highlightthickness=0, command=next_card)
+right_button = Button(image=right_image, highlightthickness=0, command=is_known_word)
 right_button.grid(row=1, column=1)
 
 next_card()
